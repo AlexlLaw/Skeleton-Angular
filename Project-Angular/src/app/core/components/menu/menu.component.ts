@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public selectdMenu: boolean;
+  @ViewChild('active') active: ElementRef;
+
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+  }
+
+  public select(): void {
+    const hamBigIsActive = this.active.nativeElement.classList.contains('hovered');
+
+    if(hamBigIsActive) {
+      this.renderer.removeClass(this.active.nativeElement, 'is-active');
+     } else {
+       this.renderer.addClass(this.active.nativeElement, 'is-active');
+     }
+  }
+
+  bla(): void {
+    console.log('passei por aqui');
   }
 
 }

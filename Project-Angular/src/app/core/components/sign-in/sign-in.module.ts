@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { SignInComponent } from './sign-in.component';
+import { SignInRoutingModule } from './sign-in-routing.module';
 
 
 
@@ -12,7 +13,7 @@ import { SignInComponent } from './sign-in.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    BrowserModule,
+    SignInRoutingModule,
     FormsModule,
   ], exports:[SignInComponent]
 })

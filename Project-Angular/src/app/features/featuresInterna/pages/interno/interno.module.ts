@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { InternoComponent } from './interno.component';
 import { MenuModule } from '../../../../core/components/menu/menu.module';
+import { RouterModule } from '@angular/router';
+import { InternoRoutingModule } from './interno-routing/interno-routing.module';
 
 
 
@@ -10,7 +12,9 @@ import { MenuModule } from '../../../../core/components/menu/menu.module';
   declarations: [InternoComponent],
   imports: [
     CommonModule,
-    MenuModule
+    MenuModule,
+    RouterModule,
+    InternoRoutingModule
   ],
   exports: [InternoComponent]
 })

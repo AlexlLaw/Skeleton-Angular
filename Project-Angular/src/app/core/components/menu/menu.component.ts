@@ -51,7 +51,7 @@ export class MenuComponent implements OnInit {
       title: 'editar',
       class: ''
     }
-  ]
+  ];
 
   constructor() { }
 
@@ -60,7 +60,7 @@ export class MenuComponent implements OnInit {
 
   public addClass(id: number): void {
    this.menu.filter((el) => {
-     if(id != el.id) {
+     if (id !== el.id) {
      return el.class = '';
      }
      el.class = 'hovered';

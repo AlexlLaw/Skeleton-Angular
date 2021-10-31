@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,26 +7,39 @@ import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/co
 })
 export class MenuComponent implements OnInit {
 
-  public selectdMenu: boolean;
-  @ViewChild('active') active: ElementRef;
+  public selectdClass: boolean = false;
+  public menu: Array<any> = [
+    {
+      id: '1',
+      icon: '',
+      title: 'cadastro',
+      class: ''
+    },
+    {
+      id: '2',
+      icon: '',
+      title: 'listar',
+      class: ''
+    },
+    {
+      id: '3',
+      icon: '',
+      title: 'editar',
+      class: ''
+    }
+  ]
 
-  constructor(private renderer: Renderer2) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  public select(): void {
-    const hamBigIsActive = this.active.nativeElement.classList.contains('hovered');
-
-    if(hamBigIsActive) {
-      this.renderer.removeClass(this.active.nativeElement, 'is-active');
-     } else {
-       this.renderer.addClass(this.active.nativeElement, 'is-active');
+  public addClass(id: number): void {
+   this.menu.filter((el) => {
+     if(id != el.id) {
+     return el.class = '';
      }
+     el.class = 'hovered';
+   });
   }
-
-  bla(): void {
-    console.log('passei por aqui');
-  }
-
 }

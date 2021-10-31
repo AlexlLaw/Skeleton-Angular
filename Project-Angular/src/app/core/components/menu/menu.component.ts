@@ -1,6 +1,7 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
-import { faCoffee, faAppleAlt, faAddressCard, faLaptopCode  } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faAppleAlt, faAddressCard, faLaptopCode, faBars  } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-menu',
@@ -11,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   public selectdClass: boolean = false;
   public faLaptopCode = faLaptopCode;
+  public faBars = faBars;
 
   public menu: Array<any> = [
     {
@@ -30,6 +32,24 @@ export class MenuComponent implements OnInit {
       icon: faAddressCard,
       title: 'editar',
       class: ''
+    },
+    {
+      id: '4',
+      icon: faCoffee,
+      title: 'cadastro',
+      class: ''
+    },
+    {
+      id: '5',
+      icon: faAppleAlt,
+      title: 'listar',
+      class: ''
+    },
+    {
+      id: '6',
+      icon: faAddressCard,
+      title: 'editar',
+      class: ''
     }
   ]
 
@@ -45,5 +65,15 @@ export class MenuComponent implements OnInit {
      }
      el.class = 'hovered';
    });
+  }
+
+  public toggleMenu(): boolean {
+    if (this.selectdClass) {
+      return this.selectdClass = false;
+    }
+
+    if (!this.selectdClass) {
+      return this.selectdClass = true;
+    }
   }
 }

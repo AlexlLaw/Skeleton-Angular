@@ -1,20 +1,42 @@
 <div class="container">
-  <div class="navigation">
+  <div class="navigation" [ngClass]="[selectdClass ? 'active' : '']">
     <ul>
       <li>
         <a>
-          <span class="icon"><fa-icon [icon]="faLaptopCode"></fa-icon></span>
-          <span class="title">Brand Name</span>
+          <span class="icon">
+            <fa-icon [icon]="faLaptopCode"></fa-icon>
+          </span>
+          <span class="title">My Aplication</span>
         </a>
       </li>
       <li *ngFor="let value of menu" (click)="addClass(value.id)" [ngClass]="[value.class]">
         <a>
-          <span class="icon"><fa-icon [icon]="value.icon"></fa-icon></span>
+          <span class="icon">
+            <fa-icon [icon]="value.icon"></fa-icon>
+          </span>
 
           <span class="title">{{ value.title}}</span>
         </a>
       </li>
     </ul>
-
   </div>
+
+  <div class="main" [ngClass]="[selectdClass ? 'active' : '']">
+    <div class="topbar">
+      <div class="toggle" (click)="toggleMenu()">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </div>
+    </div>
+    <div class="details">
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <ng-content>
+            <!--conteudo-->
+          </ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+

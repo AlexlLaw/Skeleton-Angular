@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { SignInComponent } from './sign-in.component';
 import { SignInRoutingModule } from './sign-in-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,7 +15,9 @@ import { SignInRoutingModule } from './sign-in-routing.module';
     CommonModule,
     ReactiveFormsModule,
     SignInRoutingModule,
-    FormsModule,
-  ], exports:[SignInComponent]
+    FormsModule
+  ], exports: [
+    SignInComponent
+  ]
 })
 export class SignInModule { }

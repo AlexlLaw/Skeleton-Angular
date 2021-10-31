@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { faCoffee, faAppleAlt, faAddressCard, faLaptopCode  } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -8,22 +10,24 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   public selectdClass: boolean = false;
+  public faLaptopCode = faLaptopCode;
+
   public menu: Array<any> = [
     {
       id: '1',
-      icon: '',
+      icon: faCoffee,
       title: 'cadastro',
       class: ''
     },
     {
       id: '2',
-      icon: '',
+      icon: faAppleAlt,
       title: 'listar',
       class: ''
     },
     {
       id: '3',
-      icon: '',
+      icon: faAddressCard,
       title: 'editar',
       class: ''
     }

@@ -76,9 +76,9 @@
   text-align: center;
 }
 
-/* .navigation ul li a .icon ion-icon {
+ .navigation ul li a .icon fa-icon {
   font-size: 1.75em;
-} */
+}
 
 .navigation ul li a .title {
   position: relative;

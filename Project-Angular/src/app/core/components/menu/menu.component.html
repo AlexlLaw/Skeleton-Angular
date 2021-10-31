@@ -7,28 +7,10 @@
           <span class="title">Brand Name</span>
         </a>
       </li>
-      <li (mouseover)="bla()">
+      <li *ngFor="let value of menu" (click)="addClass(value.id)" [ngClass]="[value.class]">
         <a>
-          <span class="icon"></span>
-          <span class="title">Brand Name</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"></span>
-          <span class="title">Brand Name</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"></span>
-          <span class="title">Brand Name</span>
-        </a >
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"></span>
-          <span class="title">Brand Name</span>
+          <span class="icon">{{value.icon}}</span>
+          <span class="title">{{ value.title}}</span>
         </a>
       </li>
     </ul>

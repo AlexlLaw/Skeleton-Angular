@@ -3,15 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { UserService } from './user/user.service';
+import { urlConfigs } from '../utils/urls/url-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private readonly API = `${environment.API}Home/login`;
+  private readonly API = `${environment.API}${urlConfigs.url_home_login}`;
 
   constructor(private http: HttpClient, private userService: UserService) { }
 

@@ -10,7 +10,7 @@
         </a>
       </li>
       <li *ngFor="let value of menu" (click)="addClass(value.id)" [ngClass]="[value.class]">
-        <a>
+        <a [routerLink]="[value.link]">
           <span class="icon">
             <fa-icon [icon]="value.icon"></fa-icon>
           </span>

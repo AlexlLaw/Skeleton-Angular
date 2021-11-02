@@ -11,7 +11,7 @@ export class TokenService {
 
   public hasToken(): boolean {
       return !!this.getToken();
-    }
+  }
 
   public setToken(token) {
     window.localStorage.setItem(key, token);
@@ -24,5 +24,4 @@ export class TokenService {
   public removeToken() {
     window.localStorage.removeItem(key);
   }
-
 }

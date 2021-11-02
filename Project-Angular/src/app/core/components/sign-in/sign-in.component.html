@@ -1,51 +1,64 @@
-<form class="form mt-4" [formGroup]="singInForm" (submit)="login()">
+<div class="container">
+  <div class="box">
+    <h2>Entrar</h2>
+  <form class="form mt-4 " [formGroup]="singInForm" (submit)="login()"  class="needs-validation" novalidate>
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input
-    #usernameInput
-     type="email"
-     class="form-control"
-     id="email-login"
-     aria-describedby="emailHelp"
-     placeholder="Email"
-     formControlName="username"
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        #usernameInput
+        type="text"
+        class="form-control"
+        id="userName"
+        aria-describedby="emailHelp"
+        placeholder="Digite seu usuario"
+        formControlName="username"
+        [ngClass]="[
+          isFieldValid(singInForm, 'username') ? 'input-invalid' : '',
+          'form-control',
+          'form-control-sm']"
      >
 
-    <div class="text-danger d-block mt-2" *ngIf="isFieldValid(singInForm, 'username')">
-      {{ singInForm.getValidatorsForm('username', 'email') }}
+      <div
+        class="text-danger d-block mt-2"
+        *ngIf="isFieldValid(singInForm, 'username')"
+      >
+        {{ singInForm.getValidatorsForm('username', 'email') }}
+      </div>
+
     </div>
 
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-    type="password"
-    class="form-control"
-    id="password"
-    placeholder="password"
-    formControlName="password"
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Digite sua senha"
+        formControlName="password"
+        [ngClass]="[
+        isFieldValid(singInForm, 'password') ? 'input-invalid' : '',
+        'form-control',
+        'form-control-sm']"
     />
 
-    <div class="text-danger d-block mt-2" *ngIf="isFieldValid(singInForm, 'password')">
-      {{ singInForm.getValidatorsForm('password', 'password') }}
+      <div class="text-danger d-block mt-2" *ngIf="isFieldValid(singInForm, 'password')">
+        {{ singInForm.getValidatorsForm('password', 'password') }}
+      </div>
+
     </div>
 
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">lembre-se da senha</label>
+    </div>
+
+    <div class="cart_buttons">
+      <button type="submit" class="bt btn-primary" >
+        Entrar
+      </button>
+    </div>
+  </form>
+
   </div>
-
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" >
-    <label class="form-check-label" for="exampleCheck1">lembre-se da senha</label>
-  </div>
-
-  <div class="cart_buttons">
-    <button
-    type="submit"
-
-    [disabled]="singInForm.invalid">
-      Entrar
-    </button>
-  </div>
-
-</form>
+</div>

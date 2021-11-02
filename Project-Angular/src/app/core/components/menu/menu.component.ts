@@ -1,7 +1,8 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
-import { faCoffee, faAppleAlt, faAddressCard, faLaptopCode, faBars  } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faAppleAlt, faAddressCard, faLaptopCode, faBars, faDoorClosed  } from '@fortawesome/free-solid-svg-icons';
+import { TokenService } from '../../auth/token/token.service';
 
 @Component({
   selector: 'app-menu',
@@ -19,6 +20,7 @@ export class MenuComponent implements OnInit {
       id: '1',
       icon: faCoffee,
       title: 'cadastro',
+      link: '/login',
       class: ''
     },
     {
@@ -47,13 +49,15 @@ export class MenuComponent implements OnInit {
     },
     {
       id: '6',
-      icon: faAddressCard,
-      title: 'editar',
+      icon: faDoorClosed,
+      title: 'Logout',
+      link: '/login',
       class: ''
+
     }
   ];
 
-  constructor() { }
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
   }
@@ -64,6 +68,7 @@ export class MenuComponent implements OnInit {
      return el.class = '';
      }
      el.class = 'hovered';
+     this.chooseMenu(el.title);
    });
   }
 
@@ -75,5 +80,16 @@ export class MenuComponent implements OnInit {
     if (!this.selectdClass) {
       return this.selectdClass = true;
     }
+  }
+
+  public chooseMenu(title: string): void {
+    const verify = {
+     Logout: () => {
+        this.tokenService.removeToken();
+     }
+    }
+    const entrarFunction = verify[title];
+    entrarFunction(title);
+    return;
   }
 }

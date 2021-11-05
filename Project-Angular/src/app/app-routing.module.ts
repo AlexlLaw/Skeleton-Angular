@@ -14,6 +14,13 @@ const routes: Routes = [
         ),
   },
   {
+    path: 'cadastro',
+    loadChildren: () =>
+        import('./core/components/sign-up/sign-up.module').then(
+          (m) => m.SignUpModule
+        ),
+  },
+  {
     path: 'home',
     canActivate: [AuthGuard],
     loadChildren: () =>

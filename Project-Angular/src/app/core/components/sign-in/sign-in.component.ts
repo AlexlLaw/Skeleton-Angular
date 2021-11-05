@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
     this._signInForm.markAllAsTouched();
     if (this._signInForm.valid) {
       const dados = this._signInForm.getPayload();
-      this.authService.postAuthenticate(dados.username, dados.password).subscribe(
+      this.authService.postAuthenticate(dados).subscribe(
         (res) => {
           this.router.navigate(['/home']);
         },

@@ -65,7 +65,7 @@ export class MenuComponent implements OnInit {
   public addClass(id: number): void {
    this.menu.filter((el) => {
      if (id !== el.id) {
-     return el.class = '';
+      return el.class = '';
      }
      el.class = 'hovered';
      this.chooseMenu(el.title);
@@ -87,7 +87,8 @@ export class MenuComponent implements OnInit {
      Logout: () => {
         this.tokenService.removeToken();
      }
-    }
+    };
+
     const entrarFunction = verify[title];
     entrarFunction(title);
     return;

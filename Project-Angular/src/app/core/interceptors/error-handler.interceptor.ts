@@ -13,9 +13,9 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
             tap(
                 () => {},
                 (error: HttpErrorResponse) => {
-                        if (error || ([302, 304].includes(error.status))) {
+                        if (([302, 304].includes(error.status))) {
                         }
-                        if (error || ([400, 401, 404, 500].includes(error.status))) {
+                        if (([400, 401, 404, 500].includes(error.status))) {
                             this.showMessageError(error.error.message);
                         }
                 }

@@ -29,6 +29,17 @@ export class SignUpForm extends FormGroup {
     });
   }
 
+  private static validaQuantidaDeDigito(quantidade: number): ValidatorFn {
+    return (control: AbstractControl): Record<string, true> => {
+
+        const conteudo = control.value ? control.value.replace(clearMask, '') : '';
+
+        if (conteudo.length > 0 && conteudo.length > quantidade) {
+            return { valorInvalido: true };
+        }
+    };
+  }
+
   public markAllAsTouched(): void {
     Object.keys(this.controls).map((control) => this.get(control).markAsDirty());
   }
@@ -46,14 +57,5 @@ export class SignUpForm extends FormGroup {
     }
   }
 
-  private static validaQuantidaDeDigito(quantidade: number): ValidatorFn {
-    return (control: AbstractControl): Record<string, true> => {
 
-        const conteudo = control.value ? control.value.replace(clearMask, '') : '';
-
-        if (conteudo.length > 0 && conteudo.length > quantidade) {
-            return { valorInvalido: true };
-        }
-    };
-  }
 }

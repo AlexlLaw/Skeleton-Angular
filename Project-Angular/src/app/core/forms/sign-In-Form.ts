@@ -1,7 +1,7 @@
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { SignInInterface } from '../interfaces/request/sign-in.interface';
-import { SignIn } from '../models/sign-in'
+import { SignIn } from '../models/sign-in';
 
 
 export class SignInForm extends FormGroup {

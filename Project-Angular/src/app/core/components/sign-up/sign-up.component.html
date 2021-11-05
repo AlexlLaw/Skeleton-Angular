@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="box">
+    <h2>Cadastrar</h2>
+    <form class="form mt-4 " [formGroup]="SignUp" (submit)="save()" class="needs-validation" novalidate>
+
+      <div class="form-group">
+        <label for="email">Nome</label>
+        <input #usernameInput type="text" class="form-control" id="userName" aria-describedby="emailHelp"
+          placeholder="Digite seu usuario" formControlName="username" [ngClass]="[
+          isFieldValid(SignUp, 'username') ? 'input-invalid' : '',
+          'form-control',
+          'form-control-sm']">
+
+        <div class="text-danger d-block mt-2" *ngIf="isFieldValid(SignUp, 'username')">
+          {{ SignUp.getValidatorsForm('username', 'nome') }}
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Digite sua senha"
+          formControlName="password" [ngClass]="[
+        isFieldValid(SignUp, 'password') ? 'input-invalid' : '',
+        'form-control',
+        'form-control-sm']" />
+
+        <div class="text-danger d-block mt-2" *ngIf="isFieldValid(SignUp, 'password')">
+          {{ SignUp.getValidatorsForm('password', 'password') }}
+        </div>
+
+      </div>
+      <label for="password">Perfil : </label>
+
+      <div class="form-group form-check">
+        <input type="radio" class="form-check-input" id="exampleCheck1" formControlName="role" value="manager">
+        <label class="form-check-label" for="exampleCheck1">Adminstrador</label>
+
+
+      </div>
+      <div class="form-group form-check">
+        <input type="radio" class="form-check-input" id="exampleCheck1" formControlName="role" value="employer">
+        <label class="form-check-label" for="exampleCheck1">Funcionario</label>
+
+      </div>
+      <div class="form-group form-check">
+        <input type="radio" class="form-check-input" id="exampleCheck1" formControlName="role" value="anonimo">
+        <label class="form-check-label" for="exampleCheck1">Anonimo</label>
+
+      </div>
+      <div class="text-danger d-block mt-2" *ngIf="isFieldValid(SignUp, 'role')">
+        {{ SignUp.getValidatorsForm('role', 'Perfil') }}
+      </div>
+
+      <div class="cart_buttons">
+        <button type="submit" class="bt btn-primary">
+          Cadastrar
+        </button>
+          <a [routerLink]="['/login']" style="margin-left: 10px;">
+            <button class="btn">
+              Voltar
+            </button>
+          </a>
+
+      </div>
+    </form>
+
+  </div>
+</div>

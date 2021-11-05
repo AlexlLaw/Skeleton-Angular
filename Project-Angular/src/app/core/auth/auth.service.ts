@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { UserService } from './user/user.service';
 import { urlConfigs } from '../utils/urls/url-config';
+import { SignInInterface } from '../interfaces/request/sign-in.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,9 @@ export class AuthService {
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
-  public postAuthenticate(username: string, password: string): Observable<any> {
-
+  public postAuthenticate(dados: SignInInterface): Observable<any> {
+    const username = dados.username;
+    const password = dados.password;
     return this.http
      .post(`${this.API}`,
       { username, password },

@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { InternoComponent } from '../interno.component';
-import { SignInComponent } from 'src/app/core/components/sign-in/sign-in.component';
+import { TesteComponentComponent } from '../../../components/teste-component/teste-component.component';
 
 const routes: Routes = [
  {
    path: '',
    component: InternoComponent,
-  //  children: [{
-  //    path: 'bla',
-  //    component:
-  //  }
-  //   ]
+   children: [
+     {
+      path: 'teste',
+      component: TesteComponentComponent,
+     },
 
+    ]
  }
 ];
 

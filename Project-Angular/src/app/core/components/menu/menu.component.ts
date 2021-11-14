@@ -26,7 +26,8 @@ export class MenuComponent implements OnInit {
     {
       id: '2',
       icon: faAppleAlt,
-      title: 'listar',
+      title: 'teste',
+      ink: '/teste',
       class: ''
     },
     {

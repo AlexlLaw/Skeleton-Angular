@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { ErrorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
 import { AlertModule } from './shared/components/alert/alert.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { SignUpComponent } from './core/components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [

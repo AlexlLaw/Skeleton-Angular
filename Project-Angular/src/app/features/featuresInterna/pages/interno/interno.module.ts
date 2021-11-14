@@ -5,6 +5,7 @@ import { InternoComponent } from './interno.component';
 import { MenuModule } from '../../../../core/components/menu/menu.module';
 import { RouterModule } from '@angular/router';
 import { InternoRoutingModule } from './interno-routing/interno-routing.module';
+import { TesteComponentModule } from '../../components/teste-component/teste-component.module';
 
 
 
@@ -14,7 +15,8 @@ import { InternoRoutingModule } from './interno-routing/interno-routing.module';
     CommonModule,
     MenuModule,
     RouterModule,
-    InternoRoutingModule
+    InternoRoutingModule,
+    TesteComponentModule
   ],
   exports: [InternoComponent]
 })

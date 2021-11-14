@@ -1,6 +1,8 @@
 import { SignUpInterface } from '../interfaces/request/sign-up.interface';
+import { ComponentEventHandler } from '../utils/event/component-event-handler';
+import { TesteAction } from '../utils/event/testeAction';
 
-export class SignUp implements SignUpInterface {
+export class SignUp implements SignUpInterface  {
   private _username: string;
   private _password: string;
   private _role: string;
@@ -16,7 +18,7 @@ export class SignUp implements SignUpInterface {
   }
 
   public set username(value: string) {
-    this._username = value;
+    this._username = value
   }
 
   public get password(): string {

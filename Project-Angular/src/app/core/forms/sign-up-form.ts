@@ -49,13 +49,11 @@ export class SignUpForm extends FormGroup {
   }
 
   public getPayload(): SignUpInterface {
-    const dados =  new SignUp(this.value);
+    const dados = new SignUp(this.value);
     return {
       username: dados.username,
       password: dados.password,
       role: dados.role
     }
   }
-
-
 }

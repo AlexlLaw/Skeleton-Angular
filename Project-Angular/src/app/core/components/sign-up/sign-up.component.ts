@@ -30,7 +30,8 @@ export class SignUpComponent implements OnInit {
   public save(): void {
     this.SignUp.markAllAsTouched();
     if (this.SignUp.valid) {
-      this.signUpService.postPut(this.SignUp.getPayload(), MethodsEnum.POST).subscribe(
+      const dados = this.SignUp.getPayload();
+      this.signUpService.post(dados, MethodsEnum.POST).subscribe(
         (res) => {
           this.alertService.openModal('Cadastro', 'Cadastro realizado com sucesso', 'success');
           this.router.navigate(['/login']);
